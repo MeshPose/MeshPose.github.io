@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="DensePose,Mesh,Reconstruction,Reprojection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MeshPose Project page</title>
+  <link rel="icon" type="image/x-icon" href="static/images/logo_snapchat.jpeg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">MeshPose: Unifying DensePose and 3D Body Mesh reconstruction</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://erictuanle.com/" target="_blank">Eric-Tuan Le</a><sup>*</sup><sup>1</sup>,</span>
+              <span class="author-block">
+                <a>Antonis Kakolyris</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://robotics.ntua.gr/members/pkoutras/" target="_blank">Petros Koutras</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a>Himmy Tam</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a>Efstratios Skordos</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a>George Papandreou</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="http://alpguler.com/" target="_blank">Riza Alp Guler</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="http://www0.cs.ucl.ac.uk/staff/i.kokkinos/" target="_blank">Iasonas Kokkinos</a><sup>2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UCL&emsp;&emsp;&emsp;&emsp;<sup>2</sup>Snap Inc.<br>Paper In Review (2023)</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Work done during an internship at Snap</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper (Available on demand)</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link -->
+                <span class="link-block">
+                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Supplementary (Available on demand)</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv (Coming soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <img src="static/images/teaser_2.png" alt="3D mesh reconstruction and 2D reprojection of baselines compared to ours">
+      </div>
+    </div>
+  </section>
+  <!-- End teaser -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+            We introduce MeshPose, a method to jointly tackle the 2D DensePose (DP) and 3D Human Mesh Reconstruction (HMR) problems. We start by observing that HMR
+            methods have high image reprojection error, as measured by DensePose localization metrics, while the more pixel-accurate DensePose methods do not provide a 3D
+            mesh. In our work we combine DensePose and HMR representations, losses, and datasets, resulting in a unified system that performs competitively on both tasks.
+            We first introduce SparsePose, a method to localize in 2D a sparse set of ‘low-poly’ body mesh vertices. For this we propose new geometry-motivated losses that allow
+            us to use the existing DensePose ground-truth as weak supervision for SparsePose. MeshPose then lifts these 2D vertices with per-vertex depth prediction, yielding a
+            low-poly 3D body mesh. We train the resulting system in an end-to-end manner, resulting in the first HMR system with competitive DensePose accuracy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Pipeline -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Method</h2></div>
+      <div class="container">
+        <img src="static/images/method_diagram.png" alt="3D mesh reconstruction and 2D reprojection of baselines compared to ours">
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <p>
+            SparsePose first extracts multiple per-vertex heatmaps. These are used in two ways: spatial argsoftmax across the x and y axis localizes vertices in 2D, while channel-wise aggregation of scores  provides  per-pixel UV values. 
+            MeshPose complements these 2D localized vertices with a skeleton-driven depth regressor. We use integral depth regression to estimate the skeleton joint depths and estimate per-vertex depth offsets to the parent joint depths. This results in a 3D body mesh that is both accurate in 3D and correctly reprojects to the image domain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End pipeline -->
+
+  <!-- Qualitative Results on COCO -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results on COCO</h2></div>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/COCO_1.png" alt="COCO"/>
+          </div>
+          <div class="item">
+            <img src="static/images/COCO_2.png" alt="COCO"/>
+          </div>
+          <div class="item">
+            <img src="static/images/COCO_3.png" alt="COCO"/>
+          </div>
+          <div class="item">
+            <img src="static/images/COCO_4.png" alt="COCO"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Qualitative Results on COCO -->
+
+  <!-- Qualitative Results on 3DPW -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results on 3DPW</h2></div>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/3DPW_1.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_2.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_3.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_4.png" alt="3DPW"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/3DPW_5.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_6.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_7.png" alt="3DPW"/>
+          </div>
+          <div class="item">
+            <img src="static/images/3DPW_8.png" alt="3DPW"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Qualitative Results on 3DPW -->
+
+  <!-- Quantitative Results -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results</h2></div>
+      <div class="container">
+        <div class="columns is-centered has-text-centered"><img width="50%" src="static/images/quantitative_results.png" alt="Evaluation on the 3DPW and COCO-DensePose datasets"></div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- End Quantitative Results on 3DPW -->
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>Coming soon</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+  
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+</html>
