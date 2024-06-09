@@ -202,7 +202,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
           <p>
-            <b>Visibility Supervision</b>: we estimate partial vertex visibility based on the available ground-truth: for any (x, u)
+            <b>Visibility Supervision</b>: We estimate partial vertex visibility based on the available ground-truth: for any (x, u)
             annotation pair contained in the DensePose dataset, we declare as visible all three vertices that lie on the mesh triangle
             containing u. We also declare as non-visible every vertex where the mesh supervision is outside the image crop. For
             such vertices we can supervise visibility based on a standard binary cross-entropy loss.
@@ -227,7 +227,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
-            <p style="margin-bottom:1cm;">
+            <p style="margin-bottom:1cm;margin-top:0.5cm">
               We outperform HMR methods on DensePose metrics by more than 50% while having close to state of the art 3D accuracy. By
               combining the highest FPS rate and small model size with state-of-art reprojection accuracy, our pipeline is well suited
               for mobile inference.
@@ -310,13 +310,11 @@
                   <video muted autoplay loop>
                     <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/video1.mp4" width="48%" type="video/mp4">
                   </video>
-                  <figcaption class="has-text-centered">Video 1</figcaption>
                 </td>
                 <td align="center" valign="top" width="48%">
                   <video muted autoplay loop>
                     <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/video2.mp4" width="48%" type="video/mp4">
                   </video>
-                  <figcaption class="has-text-centered">Video 2</figcaption>
                 </td
               </tr>
             </table>
@@ -326,13 +324,11 @@
                   <video muted autoplay loop>
                     <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/video3.mp4" width="48%" type="video/mp4">
                   </video>
-                  <figcaption class="has-text-centered">Video 3</figcaption>
                 </td>
                 <td align="center" valign="top" width="48%">
                   <video muted autoplay loop>
                     <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/video4.mp4" width="48%" type="video/mp4">
                   </video>
-                  <figcaption class="has-text-centered">Video 4</figcaption>
                 </td
               </tr>
             </table>
