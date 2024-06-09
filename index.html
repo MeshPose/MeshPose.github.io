@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -48,13 +49,13 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">MeshPose: Unifying DensePose and 3D Body Mesh reconstruction</h1>
-            <!--
             <div class="is-size-5 publication-authors">
-              # Paper authors
+
+              <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://erictuanle.com/" target="_blank">Eric-Tuan Le</a><sup>*</sup><sup>1</sup>,</span>
               <span class="author-block">
-                <a>Antonis Kakolyris</a><sup>2</sup>,</span>
+                <a>Antonis Kakolyris</a><sup>*</sup><sup>2</sup>,</span>
               <span class="author-block">
                 <a href="https://robotics.ntua.gr/members/pkoutras/" target="_blank">Petros Koutras</a><sup>2</sup>,</span>
               <span class="author-block">
@@ -69,57 +70,58 @@
                 <a href="http://www0.cs.ucl.ac.uk/staff/i.kokkinos/" target="_blank">Iasonas Kokkinos</a><sup>2</sup></span>
             </div>
 
+            <!-- Paper affiliation -->
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>UCL&emsp;&emsp;&emsp;&emsp;<sup>2</sup>Snap Inc.<br>Paper In Review (2023)</span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Work done during an internship at Snap</small></span>
+              <span class="author-block"><sup>1</sup>UCL&emsp;&emsp;&emsp;&emsp;<sup>2</sup>Snap Inc.<br>CVPR 2024</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Equal contribution</small></span>
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
-                # Arxiv PDF link
+
+                <!-- Paper -->
                 <span class="link-block">
-                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="static/pdf/meshpose_paper.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper (Available on demand)</span>
+                    <span>Paper</span>
                   </a>
                 </span>
 
-                # Supplementary PDF link
+                <!-- Poster -->
                 <span class="link-block">
-                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="static/pdf/meshpose_poster.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Supplementary (Available on demand)</span>
+                    <span>Poster</span>
                   </a>
                 </span>
 
-                # ArXiv abstract Link
-                <span class="link-block">
-                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv (Coming soon)</span>
-                  </a>
-                </span>
+
               </div>
             </div>
-            -->
+
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!--
-  # Teaser
+
+  <!-- Video -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="container">
-        <img src="static/images/teaser_2.png" alt="3D mesh reconstruction and 2D reprojection of baselines compared to ours">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <center>
+          <video loop controls muted autoplay playsinline class="video">
+            <source src="static/videos/meshpose_video.m4v" type="video/mp4">
+          </video>
+          </center>
+        </div>
       </div>
     </div>
   </section>
-  # End teaser
 
-  # Paper abstract
+  <!-- Abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
@@ -127,129 +129,235 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-            We introduce MeshPose, a method to jointly tackle the 2D DensePose (DP) and 3D Human Mesh Reconstruction (HMR) problems. We start by observing that HMR
-            methods have high image reprojection error, as measured by DensePose localization metrics, while the more pixel-accurate DensePose methods do not provide a 3D
-            mesh. In our work we combine DensePose and HMR representations, losses, and datasets, resulting in a unified system that performs competitively on both tasks.
-            We first introduce SparsePose, a method to localize in 2D a sparse set of ‘low-poly’ body mesh vertices. For this we propose new geometry-motivated losses that allow
-            us to use the existing DensePose ground-truth as weak supervision for SparsePose. MeshPose then lifts these 2D vertices with per-vertex depth prediction, yielding a
-            low-poly 3D body mesh. We train the resulting system in an end-to-end manner, resulting in the first HMR system with competitive DensePose accuracy.
+              DensePose provides a pixel-accurate association of images with 3D mesh coordinates, but does not provide a 3D mesh, while
+              Human Mesh Reconstruction (HMR) systems have high 2D reprojection error, as measured by DensePose localization metrics.
+              In this work we introduce MeshPose to jointly tackle DensePose and HMR. For this we first introduce new losses that allow us
+              to use weak DensePose supervision to accurately localize in 2D a subset of the mesh vertices ('VertexPose'). We then lift
+              these vertices to 3D, yielding a low-poly body mesh ('MeshPose'). Our system is trained in an end-to-end manner and is the
+              first HMR method to attain competitive DensePose accuracy, while also being lightweight and amenable to efficient inference,
+              making it suitable for real-time AR applications.
             </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  # End paper abstract
 
-  # Pipeline
+  <!-- Pipeline -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Method</h2></div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">MeshPose Architecture</h2></div>
       <div class="container">
-        <img src="static/images/method_diagram.png" alt="3D mesh reconstruction and 2D reprojection of baselines compared to ours">
+        <img src="static/images/pipeline.png" alt="Meshpose Architecture">
       </div>
     </div>
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
-          <p>
-            SparsePose first extracts multiple per-vertex heatmaps. These are used in two ways: spatial argsoftmax across the x and y axis localizes vertices in 2D, while channel-wise aggregation of scores  provides  per-pixel UV values. 
-            MeshPose complements these 2D localized vertices with a skeleton-driven depth regressor. We use integral depth regression to estimate the skeleton joint depths and estimate per-vertex depth offsets to the parent joint depths. This results in a 3D body mesh that is both accurate in 3D and correctly reprojects to the image domain.
+          <p style="margin-bottom:1cm;">
+            The lower VertexPose branch extracts multiple heatmaps from which, by applying the spatial argsoftmax
+            operation, it computes precise x and y coordinates for all the vertices inside the input crop. The upper Regression branch
+            computes the coordinates (x, y, and vertex depth z) for all vertices, along with their visibility scores w. The score w will
+            take lower values when the corresponding vertex is either occluded or fall outside the crop area. We differentiably combine the
+            VertexPose and regressed coordinates via w to get the final 3D mesh. We densely supervise the intermediate per-vertex heatmaps
+            and the final output with UV, mesh and silhouette cues to end up with a low latency, image aligned, in-the-wild HMR system
           </p>
         </div>
       </div>
     </div>
   </section>
-  # End pipeline
 
-  # Qualitative Results on COCO
+  <!-- Vertex Pose -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results on COCO</h2></div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">VertexPose Supervision</h2></div>
       <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/COCO_1.png" alt="COCO"/>
-          </div>
-          <div class="item">
-            <img src="static/images/COCO_2.png" alt="COCO"/>
-          </div>
-          <div class="item">
-            <img src="static/images/COCO_3.png" alt="COCO"/>
-          </div>
-          <div class="item">
-            <img src="static/images/COCO_4.png" alt="COCO"/>
-          </div>
+        <center> <img src="static/images/vertexpose_supervision.png" alt="VertexPose Supervision"> </center>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <p style="margin-bottom:1cm;">
+            Geometry-driven losses used to supervise VertexPose with DensePose ground-truth. Our barycentric loss requires that the
+            per-pixel distribution over VertexPose matches the UV annotation’s barycentrics. Our UV consistency loss requires that the
+            UV annotation’s barycentrics at a labelled pixel x should recover x based on a similar combination of VertexPose vertices into x&#770;.
+          </p>
         </div>
       </div>
     </div>
   </section>
-  # End Qualitative Results on COCO
 
-  # Qualitative Results on 3DPW
+  <!-- Mesh Pose -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results on 3DPW</h2></div>
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/3DPW_1.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_2.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_3.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_4.png" alt="3DPW"/>
-          </div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">MeshPose Supervision</h2></div>
+      <center>
+        <div class="container">
+          <img src="static/images/meshpose_supervision1.png" width=80% alt="Meshpose Supervision">
         </div>
-      </div>
+    </center>
     </div>
-
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/3DPW_5.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_6.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_7.png" alt="3DPW"/>
-          </div>
-          <div class="item">
-            <img src="static/images/3DPW_8.png" alt="3DPW"/>
-          </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <p>
+            <b>Visibility Supervision</b>: we estimate partial vertex visibility based on the available ground-truth: for any (x, u)
+            annotation pair contained in the DensePose dataset, we declare as visible all three vertices that lie on the mesh triangle
+            containing u. We also declare as non-visible every vertex where the mesh supervision is outside the image crop. For
+            such vertices we can supervise visibility based on a standard binary cross-entropy loss.
+          </p>
+          <p style="margin-bottom:1cm;">
+            <b>Branch Fusion</b>: The 2D location of a MeshPose vertex is the visibility-weighted average between VertexPose-based 2D
+            positions and regressed values. The visibility label dictates on a per-vertex level whether we should rely on the
+            VertexPose-based 2D position or fall back to the value regressed at this stage. This allows us to accommodate occluded areas,
+            or tight crops that omit part of the human body, as is regularly the case for selfie images. This differentiable expression allows us to estimate visibility
+            through end-to-end back-propagation, but we also use two additional methods for visibility supervision.
+          </p>
         </div>
       </div>
     </div>
   </section>
-  # End Qualitative Results on 3DPW
 
-  # Quantitative Results
+  <!-- Quantitative Results -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results</h2></div>
-      <div class="container">
-        <div class="columns is-centered has-text-centered"><img width="50%" src="static/images/quantitative_results.png" alt="Evaluation on the 3DPW and COCO-DensePose datasets"></div>
+      
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <p style="margin-bottom:1cm;">
+              We outperform HMR methods on DensePose metrics by more than 50% while having close to state of the art 3D accuracy. By
+              combining the highest FPS rate and small model size with state-of-art reprojection accuracy, our pipeline is well suited
+              for mobile inference.
+            </p>
+          </div>
+        </div>
       </div>
+      <div class="container">
+        <div class="columns is-centered has-text-centered"><img width="80%" src="static/images/quantitative_diagram.png" alt="Quantitative Evaluation"></div>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <p style="margin-bottom:1cm;">
+              Our models are purely convolutional and thus run out-of-the-box on modern phones with accelerators. We exported the ONNX
+              versions of our models and computed their timings (FPS) on an iPhone-12 using the CoreML backend, obtaining comparable timings
+              to GPU-desktop timings.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="columns is-centered has-text-centered"><img width="80%" src="static/images/mobile_fps.png" alt="Mobile inference"></div>
+      </div>
+
     </div>
   </div>
   </section>
-  # End Quantitative Results on 3DPW
 
-  # BibTex citation
+  <!-- 3DPW Videos -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">3DPW Videos</h2></div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <table width="100%">
+              <tr>
+                <td width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/3dpw_1.mp4" width="48%" type="video/mp4">
+                  </video>
+                </td>
+                <td width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/3dpw_3.mp4" width="48%" type="video/mp4">
+                  </video>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- In the Wild Videos -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3">In-the-Wild Videos</h2></div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <p style="margin-bottom:1cm;">
+              We demonstrate very strong temporal stability (low jitter) even when applied frame-by-frame without any post-processing.
+              In the videos below, only the detected bounding box is temporally-smoothed.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <center>
+            <table>
+              <tr>
+                <td align="center" valign="top" width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/video1.mp4" width="48%" type="video/mp4">
+                  </video>
+                  <figcaption class="has-text-centered">Video 1</figcaption>
+                </td>
+                <td align="center" valign="top" width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/video2.mp4" width="48%" type="video/mp4">
+                  </video>
+                  <figcaption class="has-text-centered">Video 2</figcaption>
+                </td
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td align="center" valign="top" width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/video3.mp4" width="48%" type="video/mp4">
+                  </video>
+                  <figcaption class="has-text-centered">Video 3</figcaption>
+                </td>
+                <td align="center" valign="top" width="48%">
+                  <video muted autoplay loop>
+                    <source src="static/videos/video4.mp4" width="48%" type="video/mp4">
+                  </video>
+                  <figcaption class="has-text-centered">Video 4</figcaption>
+                </td
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bibtex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>Coming soon</code></pre>
+      <pre><code>
+        @inproceedings{lekakolyris2024meshpose,
+          title={MeshPose: Unifying DensePose and 3D Body Mesh reconstruction},
+          author={Eric-Tuan Le\^, Antonis Kakolyris, Petros Koutras, Himmy Tam, Efstratios Skordos, George Papandreou, R\{i}za Alp G\"uler, Iasonas Kokkinos},
+          booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+          year={2024}
+        }        
+      </code></pre>
     </div>
   </section>
-  # End BibTex citation
 
+  <!-- Credit -->
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
@@ -263,7 +371,6 @@
       </div>
     </div>
   </footer>
-  -->
 
   <!-- Statcounter tracking code -->
   
