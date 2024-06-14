@@ -105,22 +105,6 @@
     </div>
   </section>
 
-
-  <!-- Video -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <center>
-          <video loop controls muted autoplay playsinline class="video">
-            <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/meshpose_video.m4v" type="video/mp4">
-          </video>
-          </center>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
@@ -146,14 +130,14 @@
   <!-- Pipeline -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">MeshPose Architecture</h2></div>
-      <div class="container">
-        <img src="static/images/pipeline.png" alt="Meshpose Architecture">
-      </div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">MeshPose Architecture</h2></div>
     </div>
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
+          <div class="container">
+            <img src="static/images/pipeline.png" alt="Meshpose Architecture">
+          </div>
           <p style="margin-bottom:1cm;">
             The lower VertexPose branch extracts multiple heatmaps from which, by applying the spatial argsoftmax
             operation, it computes precise x and y coordinates for all the vertices inside the input crop. The upper Regression branch
@@ -170,14 +154,14 @@
   <!-- Vertex Pose -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">VertexPose Supervision</h2></div>
-      <div class="container">
-        <center> <img src="static/images/vertexpose_supervision.png" alt="VertexPose Supervision"> </center>
-      </div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">VertexPose Supervision</h2></div>
     </div>
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
+          <div class="container">
+            <center> <img src="static/images/vertexpose_supervision.png" alt="VertexPose Supervision"> </center>
+          </div>
           <p style="margin-bottom:1cm;">
             Geometry-driven losses used to supervise VertexPose with DensePose ground-truth. Our barycentric loss requires that the
             per-pixel distribution over VertexPose matches the UV annotation’s barycentrics. Our UV consistency loss requires that the
@@ -191,16 +175,16 @@
   <!-- Mesh Pose -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">MeshPose Supervision</h2></div>
-      <center>
-        <div class="container">
-          <img src="static/images/meshpose_supervision1.png" width=80% alt="Meshpose Supervision">
-        </div>
-    </center>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">MeshPose Supervision</h2></div>
     </div>
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
+          <center>
+            <div class="container">
+              <img src="static/images/meshpose_supervision1.png" alt="Meshpose Supervision">
+            </div>
+          </center>
           <p>
             <b>Visibility Supervision</b>: We estimate partial vertex visibility based on the available ground-truth: for any (x, u)
             annotation pair contained in the DensePose dataset, we declare as visible all three vertices that lie on the mesh triangle
@@ -222,21 +206,20 @@
   <!-- Quantitative Results -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">Quantitative Results</h2></div>
-      
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">Quantitative Results</h2></div>
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
-            <p style="margin-bottom:1cm;margin-top:0.5cm">
+            <p style="margin-bottom:1cm;">
               We outperform HMR methods on DensePose metrics by more than 50% while having close to state of the art 3D accuracy. By
               combining the highest FPS rate and small model size with state-of-art reprojection accuracy, our pipeline is well suited
               for mobile inference.
             </p>
+            <div class="container">
+              <div class="columns is-centered has-text-centered"><img src="static/images/quantitative_diagram.png" alt="Quantitative Evaluation"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="columns is-centered has-text-centered"><img width="80%" src="static/images/quantitative_diagram.png" alt="Quantitative Evaluation"></div>
       </div>
     </div>
 
@@ -249,21 +232,37 @@
               versions of our models and computed their timings (FPS) on an iPhone-12 using the CoreML backend, obtaining comparable timings
               to GPU-desktop timings.
             </p>
+            <div class="container">
+              <div class="columns is-centered has-text-centered"><img src="static/images/mobile_fps.png" alt="Mobile inference"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="columns is-centered has-text-centered"><img width="80%" src="static/images/mobile_fps.png" alt="Mobile inference"></div>
       </div>
 
     </div>
   </div>
   </section>
 
+    <!-- Video -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">Presentation Video</h2></div>
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <center>
+            <video loop controls muted autoplay playsinline class="video">
+              <source src="https://github.com/MeshPose/MeshPose.github.io/raw/main/static/videos/meshpose_video.m4v" type="video/mp4">
+            </video>
+            </center>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <!-- 3DPW Videos -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">3DPW Videos</h2></div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">3DPW Videos</h2></div>
       <div class="container is-max-desktop">
         <div class="columns is-centered">
             <table width="100%">
@@ -289,11 +288,11 @@
   <!-- In the Wild Videos -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3">In-the-Wild Videos</h2></div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:0.5cm;">In-the-Wild Videos</h2></div>
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
-            <p style="margin-bottom:1cm;margin-top:0.5cm;">
+            <p style="margin-bottom:1cm;">
               We demonstrate very strong temporal stability (low jitter) even when applied frame-by-frame without any post-processing.
               In the videos below, only the detected bounding box is temporally-smoothed.
             </p>
