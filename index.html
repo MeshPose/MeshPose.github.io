@@ -131,21 +131,21 @@
   <section class="hero is-small">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">MeshPose Architecture</h2></div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="content has-text-justified">
-          <div class="container">
-            <img src="static/images/pipeline.png" alt="Meshpose Architecture">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <div class="container">
+              <img src="static/images/pipeline.png" alt="Meshpose Architecture">
+            </div>
+            <p style="margin-bottom:0.5cm;">
+              The lower VertexPose branch extracts multiple heatmaps from which, by applying the spatial argsoftmax
+              operation, it computes precise x and y coordinates for all the vertices inside the input crop. The upper Regression branch
+              computes the coordinates (x, y, and vertex depth z) for all vertices, along with their visibility scores w. The score w will
+              take lower values when the corresponding vertex is either occluded or fall outside the crop area. We differentiably combine the
+              VertexPose and regressed coordinates via w to get the final 3D mesh. We densely supervise the intermediate per-vertex heatmaps
+              and the final output with UV, mesh and silhouette cues to end up with a low latency, image aligned, in-the-wild HMR system
+            </p>
           </div>
-          <p style="margin-bottom:1cm;">
-            The lower VertexPose branch extracts multiple heatmaps from which, by applying the spatial argsoftmax
-            operation, it computes precise x and y coordinates for all the vertices inside the input crop. The upper Regression branch
-            computes the coordinates (x, y, and vertex depth z) for all vertices, along with their visibility scores w. The score w will
-            take lower values when the corresponding vertex is either occluded or fall outside the crop area. We differentiably combine the
-            VertexPose and regressed coordinates via w to get the final 3D mesh. We densely supervise the intermediate per-vertex heatmaps
-            and the final output with UV, mesh and silhouette cues to end up with a low latency, image aligned, in-the-wild HMR system
-          </p>
         </div>
       </div>
     </div>
@@ -155,18 +155,18 @@
   <section class="hero is-small">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">VertexPose Supervision</h2></div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="content has-text-justified">
-          <div class="container">
-            <center> <img src="static/images/vertexpose_supervision.png" alt="VertexPose Supervision"> </center>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <div class="container">
+              <center> <img src="static/images/vertexpose_supervision.png" alt="VertexPose Supervision"> </center>
+            </div>
+            <p style="margin-bottom:0.5cm;">
+              Geometry-driven losses used to supervise VertexPose with DensePose ground-truth. Our barycentric loss requires that the
+              per-pixel distribution over VertexPose matches the UV annotation’s barycentrics. Our UV consistency loss requires that the
+              UV annotation’s barycentrics at a labelled pixel x should recover x based on a similar combination of VertexPose vertices into x&#770;.
+            </p>
           </div>
-          <p style="margin-bottom:1cm;">
-            Geometry-driven losses used to supervise VertexPose with DensePose ground-truth. Our barycentric loss requires that the
-            per-pixel distribution over VertexPose matches the UV annotation’s barycentrics. Our UV consistency loss requires that the
-            UV annotation’s barycentrics at a labelled pixel x should recover x based on a similar combination of VertexPose vertices into x&#770;.
-          </p>
         </div>
       </div>
     </div>
@@ -176,28 +176,27 @@
   <section class="hero is-small">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">MeshPose Supervision</h2></div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="content has-text-justified">
-          <center>
+  
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
             <div class="container">
               <img src="static/images/meshpose_supervision1.png" alt="Meshpose Supervision">
             </div>
-          </center>
-          <p>
-            <b>Visibility Supervision</b>: We estimate partial vertex visibility based on the available ground-truth: for any (x, u)
-            annotation pair contained in the DensePose dataset, we declare as visible all three vertices that lie on the mesh triangle
-            containing u. We also declare as non-visible every vertex where the mesh supervision is outside the image crop. For
-            such vertices we can supervise visibility based on a standard binary cross-entropy loss.
-          </p>
-          <p style="margin-bottom:1cm;">
-            <b>Branch Fusion</b>: The 2D location of a MeshPose vertex is the visibility-weighted average between VertexPose-based 2D
-            positions and regressed values. The visibility label dictates on a per-vertex level whether we should rely on the
-            VertexPose-based 2D position or fall back to the value regressed at this stage. This allows us to accommodate occluded areas,
-            or tight crops that omit part of the human body, as is regularly the case for selfie images. This differentiable expression allows us to estimate visibility
-            through end-to-end back-propagation, but we also use two additional methods for visibility supervision.
-          </p>
+            <p>
+              <b>Visibility Supervision</b>: We estimate partial vertex visibility based on the available ground-truth: for any (x, u)
+              annotation pair contained in the DensePose dataset, we declare as visible all three vertices that lie on the mesh triangle
+              containing u. We also declare as non-visible every vertex where the mesh supervision is outside the image crop. For
+              such vertices we can supervise visibility based on a standard binary cross-entropy loss.
+            </p>
+            <p style="margin-bottom:0.5cm;">
+              <b>Branch Fusion</b>: The 2D location of a MeshPose vertex is the visibility-weighted average between VertexPose-based 2D
+              positions and regressed values. The visibility label dictates on a per-vertex level whether we should rely on the
+              VertexPose-based 2D position or fall back to the value regressed at this stage. This allows us to accommodate occluded areas,
+              or tight crops that omit part of the human body, as is regularly the case for selfie images. This differentiable expression allows us to estimate visibility
+              through end-to-end back-propagation, but we also use two additional methods for visibility supervision.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -206,7 +205,7 @@
   <!-- Quantitative Results -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:1cm;">Quantitative Results</h2></div>
+      <div class="columns is-centered has-text-centered"><h2 class="title is-3" style="margin-bottom:0.5cm;">Quantitative Results</h2></div>
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
@@ -227,13 +226,13 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
-            <p style="margin-bottom:1cm;">
+            <p style="margin-bottom:1cm;margin-top:0.5cm;">
               Our models are purely convolutional and thus run out-of-the-box on modern phones with accelerators. We exported the ONNX
               versions of our models and computed their timings (FPS) on an iPhone-12 using the CoreML backend, obtaining comparable timings
               to GPU-desktop timings.
             </p>
             <div class="container">
-              <div class="columns is-centered has-text-centered"><img src="static/images/mobile_fps.png" alt="Mobile inference"></div>
+              <div class="columns is-centered has-text-centered" style="margin-bottom:0.5cm;"><img src="static/images/mobile_fps.png" alt="Mobile inference"></div>
             </div>
           </div>
         </div>
